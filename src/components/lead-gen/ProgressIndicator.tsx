@@ -29,11 +29,11 @@ export function ProgressIndicator({ steps, currentStep }: ProgressIndicatorProps
               // Completed step
               <div className="group flex items-center">
                 <span className="relative flex h-10 w-10 shrink-0 items-center justify-center">
-                  <span className="h-10 w-10 rounded-full bg-boardroom flex items-center justify-center shadow-glow">
+                  <span className="h-10 w-10 rounded-full bg-terracotta flex items-center justify-center shadow-warm">
                     <Check className="h-5 w-5 text-white" aria-hidden="true" />
                   </span>
                 </span>
-                <span className="ml-3 hidden sm:block text-sm font-medium text-boardroom">
+                <span className="ml-3 hidden sm:block text-sm font-medium text-terracotta">
                   {step.label}
                 </span>
               </div>
@@ -41,12 +41,12 @@ export function ProgressIndicator({ steps, currentStep }: ProgressIndicatorProps
               // Current step
               <div className="group flex items-center" aria-current="step">
                 <span className="relative flex h-10 w-10 shrink-0 items-center justify-center">
-                  <span className="absolute h-14 w-14 rounded-full bg-boardroom/20 animate-pulse-subtle" />
-                  <span className="relative h-10 w-10 rounded-full bg-boardroom flex items-center justify-center shadow-glow-lg">
+                  <span className="absolute h-14 w-14 rounded-full bg-terracotta/20 animate-pulse" />
+                  <span className="relative h-10 w-10 rounded-full bg-terracotta flex items-center justify-center shadow-warm">
                     <span className="text-white font-semibold">{step.id}</span>
                   </span>
                 </span>
-                <span className="ml-3 hidden sm:block text-sm font-medium text-white">
+                <span className="ml-3 hidden sm:block text-sm font-medium text-gray-900">
                   {step.label}
                 </span>
               </div>
@@ -54,11 +54,11 @@ export function ProgressIndicator({ steps, currentStep }: ProgressIndicatorProps
               // Upcoming step
               <div className="group flex items-center">
                 <span className="relative flex h-10 w-10 shrink-0 items-center justify-center">
-                  <span className="h-10 w-10 rounded-full border-2 border-cloud/30 bg-midnight flex items-center justify-center">
-                    <span className="text-cloud/50 font-medium">{step.id}</span>
+                  <span className="h-10 w-10 rounded-full border-2 border-sand bg-cream flex items-center justify-center">
+                    <span className="text-gray-400 font-medium">{step.id}</span>
                   </span>
                 </span>
-                <span className="ml-3 hidden sm:block text-sm font-medium text-cloud/50">
+                <span className="ml-3 hidden sm:block text-sm font-medium text-gray-400">
                   {step.label}
                 </span>
               </div>
@@ -69,7 +69,7 @@ export function ProgressIndicator({ steps, currentStep }: ProgressIndicatorProps
               <div
                 className={cn(
                   'absolute top-5 right-0 -ml-px h-0.5 w-full sm:w-[calc(100%-5rem)]',
-                  step.id < currentStep ? 'bg-boardroom' : 'bg-cloud/20'
+                  step.id < currentStep ? 'bg-terracotta' : 'bg-sand'
                 )}
                 style={{ left: '3.5rem' }}
               />

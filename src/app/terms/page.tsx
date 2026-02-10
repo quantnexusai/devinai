@@ -8,17 +8,17 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-cream">
       <Header />
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-20 border-b border-cloud/10">
+        <section className="py-16 lg:py-20 border-b border-sand">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl lg:text-4xl font-serif font-bold text-white mb-4">
+            <h1 className="text-3xl lg:text-4xl font-serif font-bold text-gray-900 mb-4">
               Terms of Service
             </h1>
-            <p className="text-cloud/60">
+            <p className="text-gray-600">
               Last updated: January 1, 2024
             </p>
           </div>
@@ -27,14 +27,14 @@ export default function TermsPage() {
         {/* Content */}
         <section className="py-16 lg:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="prose prose-invert prose-cloud max-w-none">
+            <div className="prose prose-gray max-w-none">
               <article className="space-y-12">
                 {/* Introduction */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     1. Introduction
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       Welcome to DevinAI. These Terms of Service govern your use of our website,
                       services, and any related applications. By accessing or using our services,
@@ -50,10 +50,10 @@ export default function TermsPage() {
 
                 {/* Services */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     2. Services
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       DevinAI offers professional software development and consulting services
                       including but not limited to:
@@ -75,27 +75,27 @@ export default function TermsPage() {
 
                 {/* Intellectual Property */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     3. Intellectual Property
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       Unless otherwise specified in a service agreement, intellectual property
                       rights are handled as follows:
                     </p>
                     <ul className="list-disc pl-6 space-y-2">
                       <li>
-                        <strong className="text-white">Client Work:</strong> Custom code and
+                        <strong className="text-gray-900">Client Work:</strong> Custom code and
                         deliverables created specifically for a client project are assigned
                         to the client upon full payment.
                       </li>
                       <li>
-                        <strong className="text-white">Pre-existing Tools:</strong> DevinAI
+                        <strong className="text-gray-900">Pre-existing Tools:</strong> DevinAI
                         retains ownership of any pre-existing tools, frameworks, or methodologies
                         used in delivering services.
                       </li>
                       <li>
-                        <strong className="text-white">Website Content:</strong> All content on
+                        <strong className="text-gray-900">Website Content:</strong> All content on
                         this website, including text, graphics, and code, is owned by DevinAI
                         and protected by copyright laws.
                       </li>
@@ -105,10 +105,10 @@ export default function TermsPage() {
 
                 {/* Confidentiality */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     4. Confidentiality
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       DevinAI maintains strict confidentiality regarding all client information,
                       business processes, and technical details shared during engagements.
@@ -120,10 +120,10 @@ export default function TermsPage() {
 
                 {/* Limitation of Liability */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     5. Limitation of Liability
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       To the maximum extent permitted by law, DevinAI shall not be liable for
                       any indirect, incidental, special, consequential, or punitive damages,
@@ -139,16 +139,16 @@ export default function TermsPage() {
 
                 {/* Privacy Policy */}
                 <div id="privacy">
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     6. Privacy Policy
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       DevinAI is committed to protecting your privacy. This section describes
                       how we collect, use, and protect your information.
                     </p>
 
-                    <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">
                       Information We Collect
                     </h3>
                     <ul className="list-disc pl-6 space-y-2">
@@ -158,7 +158,7 @@ export default function TermsPage() {
                       <li>Communication records</li>
                     </ul>
 
-                    <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">
                       How We Use Information
                     </h3>
                     <ul className="list-disc pl-6 space-y-2">
@@ -168,7 +168,7 @@ export default function TermsPage() {
                       <li>To analyze and improve our website</li>
                     </ul>
 
-                    <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">
                       Data Protection
                     </h3>
                     <p>
@@ -177,22 +177,22 @@ export default function TermsPage() {
                       is retained only as long as necessary for the purposes described.
                     </p>
 
-                    <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">
                       Your Rights
                     </h3>
                     <p>
                       You have the right to access, correct, or delete your personal information.
-                      To exercise these rights, contact us at privacy@devinai.com.
+                      To exercise these rights, contact us at ari@devinai.com.
                     </p>
                   </div>
                 </div>
 
                 {/* Governing Law */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     7. Governing Law
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       These terms shall be governed by and construed in accordance with the
                       laws of the United States of America. Any disputes arising from these
@@ -203,10 +203,10 @@ export default function TermsPage() {
 
                 {/* Changes to Terms */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     8. Changes to Terms
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       DevinAI reserves the right to modify these terms at any time. We will
                       notify users of significant changes through our website or direct
@@ -218,24 +218,18 @@ export default function TermsPage() {
 
                 {/* Contact */}
                 <div>
-                  <h2 className="text-xl font-serif font-semibold text-white mb-4">
+                  <h2 className="text-xl font-serif font-semibold text-gray-900 mb-4">
                     9. Contact Information
                   </h2>
-                  <div className="space-y-4 text-cloud/70 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       For questions about these terms or our services, please contact us:
                     </p>
                     <ul className="list-none space-y-2">
                       <li>
-                        <strong className="text-white">Email:</strong>{' '}
-                        <a href="mailto:legal@devinai.com" className="text-boardroom hover:text-boardroom/80">
-                          legal@devinai.com
-                        </a>
-                      </li>
-                      <li>
-                        <strong className="text-white">General Inquiries:</strong>{' '}
-                        <a href="mailto:hello@devinai.com" className="text-boardroom hover:text-boardroom/80">
-                          hello@devinai.com
+                        <strong className="text-gray-900">Email:</strong>{' '}
+                        <a href="mailto:ari@devinai.com" className="text-terracotta hover:text-terracotta/80">
+                          ari@devinai.com
                         </a>
                       </li>
                     </ul>

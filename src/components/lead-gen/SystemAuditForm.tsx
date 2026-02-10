@@ -186,13 +186,13 @@ export function SystemAuditForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-12">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-boardroom/20 mb-6 animate-fade-in">
-          <CheckCircle2 className="w-12 h-12 text-boardroom animate-commission" />
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-terracotta/20 mb-6">
+          <CheckCircle2 className="w-12 h-12 text-terracotta" />
         </div>
-        <h2 className="text-2xl font-serif font-bold text-white mb-4 animate-fade-in-up">
+        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">
           Audit Request Received
         </h2>
-        <p className="text-cloud/70 max-w-md mx-auto animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <p className="text-gray-600 max-w-md mx-auto">
           Thank you for your interest in working with DevinAI. We will review your submission
           and reach out within 2 business days to schedule your system audit.
         </p>
@@ -207,84 +207,84 @@ export function SystemAuditForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Step 1: Contact Info */}
         {currentStep === 1 && (
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6">
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Full Name
               </label>
               <input
                 {...register('name')}
                 type="text"
                 className={cn(
-                  'w-full px-4 py-3 bg-vault/10 border rounded-sm text-white placeholder-cloud/40',
-                  'focus:outline-none focus:ring-2 focus:ring-boardroom focus:border-transparent',
+                  'w-full px-4 py-3 bg-cream border rounded-xl text-gray-900 placeholder-gray-400',
+                  'focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent',
                   'transition-all duration-200',
-                  errors.name ? 'border-red-500' : 'border-cloud/20'
+                  errors.name ? 'border-red-500' : 'border-sand'
                 )}
                 placeholder="John Smith"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Email Address
               </label>
               <input
                 {...register('email')}
                 type="email"
                 className={cn(
-                  'w-full px-4 py-3 bg-vault/10 border rounded-sm text-white placeholder-cloud/40',
-                  'focus:outline-none focus:ring-2 focus:ring-boardroom focus:border-transparent',
+                  'w-full px-4 py-3 bg-cream border rounded-xl text-gray-900 placeholder-gray-400',
+                  'focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent',
                   'transition-all duration-200',
-                  errors.email ? 'border-red-500' : 'border-cloud/20'
+                  errors.email ? 'border-red-500' : 'border-sand'
                 )}
                 placeholder="john@company.com"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Company
               </label>
               <input
                 {...register('company')}
                 type="text"
                 className={cn(
-                  'w-full px-4 py-3 bg-vault/10 border rounded-sm text-white placeholder-cloud/40',
-                  'focus:outline-none focus:ring-2 focus:ring-boardroom focus:border-transparent',
+                  'w-full px-4 py-3 bg-cream border rounded-xl text-gray-900 placeholder-gray-400',
+                  'focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent',
                   'transition-all duration-200',
-                  errors.company ? 'border-red-500' : 'border-cloud/20'
+                  errors.company ? 'border-red-500' : 'border-sand'
                 )}
                 placeholder="Acme Corporation"
               />
               {errors.company && (
-                <p className="mt-1 text-sm text-red-400">{errors.company.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.company.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Your Role
               </label>
               <input
                 {...register('role')}
                 type="text"
                 className={cn(
-                  'w-full px-4 py-3 bg-vault/10 border rounded-sm text-white placeholder-cloud/40',
-                  'focus:outline-none focus:ring-2 focus:ring-boardroom focus:border-transparent',
+                  'w-full px-4 py-3 bg-cream border rounded-xl text-gray-900 placeholder-gray-400',
+                  'focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent',
                   'transition-all duration-200',
-                  errors.role ? 'border-red-500' : 'border-cloud/20'
+                  errors.role ? 'border-red-500' : 'border-sand'
                 )}
                 placeholder="VP of Engineering"
               />
               {errors.role && (
-                <p className="mt-1 text-sm text-red-400">{errors.role.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.role.message}</p>
               )}
             </div>
           </div>
@@ -292,27 +292,27 @@ export function SystemAuditForm() {
 
         {/* Step 2: Challenge */}
         {currentStep === 2 && (
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6">
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Current Challenge
               </label>
-              <p className="text-cloud/60 text-sm mb-3">
+              <p className="text-gray-500 text-sm mb-3">
                 What is the primary technical or business challenge you are looking to solve?
               </p>
               <textarea
                 {...register('current_challenge')}
                 rows={6}
                 className={cn(
-                  'w-full px-4 py-3 bg-vault/10 border rounded-sm text-white placeholder-cloud/40',
-                  'focus:outline-none focus:ring-2 focus:ring-boardroom focus:border-transparent',
+                  'w-full px-4 py-3 bg-cream border rounded-xl text-gray-900 placeholder-gray-400',
+                  'focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent',
                   'transition-all duration-200 resize-none',
-                  errors.current_challenge ? 'border-red-500' : 'border-cloud/20'
+                  errors.current_challenge ? 'border-red-500' : 'border-sand'
                 )}
                 placeholder="Describe your current challenges, pain points, or goals..."
               />
               {errors.current_challenge && (
-                <p className="mt-1 text-sm text-red-400">{errors.current_challenge.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.current_challenge.message}</p>
               )}
             </div>
           </div>
@@ -320,9 +320,9 @@ export function SystemAuditForm() {
 
         {/* Step 3: Tech Stack */}
         {currentStep === 3 && (
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6">
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Team Size
               </label>
               <div className="grid grid-cols-5 gap-3">
@@ -330,11 +330,11 @@ export function SystemAuditForm() {
                   <label
                     key={size}
                     className={cn(
-                      'flex items-center justify-center px-4 py-3 border rounded-sm cursor-pointer',
+                      'flex items-center justify-center px-4 py-3 border rounded-xl cursor-pointer',
                       'transition-all duration-200',
                       watch('team_size') === size
-                        ? 'bg-boardroom/20 border-boardroom text-white shadow-glow-sm'
-                        : 'bg-vault/10 border-cloud/20 text-cloud/60 hover:border-cloud/40'
+                        ? 'bg-terracotta/20 border-terracotta text-terracotta shadow-warm'
+                        : 'bg-cream border-sand text-gray-600 hover:border-taupe'
                     )}
                   >
                     <input
@@ -348,15 +348,15 @@ export function SystemAuditForm() {
                 ))}
               </div>
               {errors.team_size && (
-                <p className="mt-1 text-sm text-red-400">{errors.team_size.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.team_size.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Current Tech Stack
               </label>
-              <p className="text-cloud/60 text-sm mb-3">
+              <p className="text-gray-500 text-sm mb-3">
                 Select all technologies currently in use
               </p>
               <div className="grid grid-cols-4 gap-2">
@@ -366,11 +366,11 @@ export function SystemAuditForm() {
                     type="button"
                     onClick={() => toggleArrayValue('tech_stack', tech)}
                     className={cn(
-                      'px-3 py-2 border rounded-sm text-sm font-medium',
+                      'px-3 py-2 border rounded-xl text-sm font-medium',
                       'transition-all duration-200',
                       watchTechStack?.includes(tech)
-                        ? 'bg-boardroom/20 border-boardroom text-white shadow-glow-sm'
-                        : 'bg-vault/10 border-cloud/20 text-cloud/60 hover:border-cloud/40'
+                        ? 'bg-terracotta/20 border-terracotta text-terracotta shadow-warm'
+                        : 'bg-cream border-sand text-gray-600 hover:border-taupe'
                     )}
                   >
                     {watchTechStack?.includes(tech) && (
@@ -381,7 +381,7 @@ export function SystemAuditForm() {
                 ))}
               </div>
               {errors.tech_stack && (
-                <p className="mt-1 text-sm text-red-400">{errors.tech_stack.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.tech_stack.message}</p>
               )}
             </div>
           </div>
@@ -389,12 +389,12 @@ export function SystemAuditForm() {
 
         {/* Step 4: Desired Outcomes */}
         {currentStep === 4 && (
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6">
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Desired Outcomes
               </label>
-              <p className="text-cloud/60 text-sm mb-3">
+              <p className="text-gray-500 text-sm mb-3">
                 What outcomes are most important to you?
               </p>
               <div className="grid grid-cols-2 gap-2">
@@ -404,11 +404,11 @@ export function SystemAuditForm() {
                     type="button"
                     onClick={() => toggleArrayValue('desired_outcomes', outcome)}
                     className={cn(
-                      'px-4 py-3 border rounded-sm text-sm font-medium text-left',
+                      'px-4 py-3 border rounded-xl text-sm font-medium text-left',
                       'transition-all duration-200',
                       watchOutcomes?.includes(outcome)
-                        ? 'bg-boardroom/20 border-boardroom text-white shadow-glow-sm'
-                        : 'bg-vault/10 border-cloud/20 text-cloud/60 hover:border-cloud/40'
+                        ? 'bg-terracotta/20 border-terracotta text-terracotta shadow-warm'
+                        : 'bg-cream border-sand text-gray-600 hover:border-taupe'
                     )}
                   >
                     {watchOutcomes?.includes(outcome) && (
@@ -419,12 +419,12 @@ export function SystemAuditForm() {
                 ))}
               </div>
               {errors.desired_outcomes && (
-                <p className="mt-1 text-sm text-red-400">{errors.desired_outcomes.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.desired_outcomes.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Budget Range
               </label>
               <div className="grid grid-cols-5 gap-2">
@@ -432,11 +432,11 @@ export function SystemAuditForm() {
                   <label
                     key={budget}
                     className={cn(
-                      'flex items-center justify-center px-3 py-3 border rounded-sm cursor-pointer',
+                      'flex items-center justify-center px-3 py-3 border rounded-xl cursor-pointer',
                       'transition-all duration-200 text-center',
                       watch('budget_range') === budget
-                        ? 'bg-boardroom/20 border-boardroom text-white shadow-glow-sm'
-                        : 'bg-vault/10 border-cloud/20 text-cloud/60 hover:border-cloud/40'
+                        ? 'bg-terracotta/20 border-terracotta text-terracotta shadow-warm'
+                        : 'bg-cream border-sand text-gray-600 hover:border-taupe'
                     )}
                   >
                     <input
@@ -450,12 +450,12 @@ export function SystemAuditForm() {
                 ))}
               </div>
               {errors.budget_range && (
-                <p className="mt-1 text-sm text-red-400">{errors.budget_range.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.budget_range.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-cloud uppercase tracking-wider mb-2">
+              <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-2">
                 Timeline
               </label>
               <div className="grid grid-cols-4 gap-2">
@@ -463,11 +463,11 @@ export function SystemAuditForm() {
                   <label
                     key={timeline}
                     className={cn(
-                      'flex items-center justify-center px-3 py-3 border rounded-sm cursor-pointer',
+                      'flex items-center justify-center px-3 py-3 border rounded-xl cursor-pointer',
                       'transition-all duration-200 text-center',
                       watch('timeline') === timeline
-                        ? 'bg-boardroom/20 border-boardroom text-white shadow-glow-sm'
-                        : 'bg-vault/10 border-cloud/20 text-cloud/60 hover:border-cloud/40'
+                        ? 'bg-terracotta/20 border-terracotta text-terracotta shadow-warm'
+                        : 'bg-cream border-sand text-gray-600 hover:border-taupe'
                     )}
                   >
                     <input
@@ -481,19 +481,19 @@ export function SystemAuditForm() {
                 ))}
               </div>
               {errors.timeline && (
-                <p className="mt-1 text-sm text-red-400">{errors.timeline.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.timeline.message}</p>
               )}
             </div>
           </div>
         )}
 
         {/* Navigation */}
-        <div className="flex justify-between pt-6 border-t border-cloud/10">
+        <div className="flex justify-between pt-6 border-t border-sand">
           {currentStep > 1 ? (
             <button
               type="button"
               onClick={prevStep}
-              className="inline-flex items-center px-6 py-3 text-cloud/70 hover:text-white transition-colors duration-200"
+              className="inline-flex items-center px-6 py-3 text-gray-600 hover:text-gray-900 transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back
@@ -506,7 +506,7 @@ export function SystemAuditForm() {
             <button
               type="button"
               onClick={nextStep}
-              className="inline-flex items-center px-6 py-3 bg-boardroom hover:bg-boardroom/90 text-white rounded-sm font-medium transition-all duration-200 hover:shadow-glow"
+              className="inline-flex items-center px-6 py-3 bg-terracotta hover:bg-terracotta/90 text-white rounded-xl font-medium transition-all duration-200 shadow-warm"
             >
               Continue
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -515,7 +515,7 @@ export function SystemAuditForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center px-8 py-3 bg-boardroom hover:bg-boardroom/90 text-white rounded-sm font-medium transition-all duration-200 hover:shadow-glow disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center px-8 py-3 bg-terracotta hover:bg-terracotta/90 text-white rounded-xl font-medium transition-all duration-200 shadow-warm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
