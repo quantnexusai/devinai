@@ -23,9 +23,9 @@ export function TechStackBadges({
         <span
           key={tech}
           className={`
-            font-mono font-medium rounded
-            bg-vault/10 text-boardroom border border-vault/20
-            hover:bg-vault/15 hover:border-boardroom/40
+            font-mono font-medium rounded-lg
+            bg-cream text-terracotta border border-sand
+            hover:bg-sand/50 hover:border-taupe
             transition-all duration-200
             ${sizeClasses[size]}
           `}

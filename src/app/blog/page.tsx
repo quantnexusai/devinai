@@ -19,7 +19,7 @@ function BlogContent() {
   return (
     <>
       {/* Category Filter */}
-      <div className="mb-12 border-b border-cloud/10 pb-4">
+      <div className="mb-12 border-b border-sand pb-4">
         <BlogCategoryFilter categories={categories} />
       </div>
 
@@ -31,20 +31,20 @@ function BlogContent() {
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-cream">
       <Header />
 
       {/* Hero Section */}
       <section className="pt-32 lg:pt-40 pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <span className="inline-block text-sm font-sans text-boardroom uppercase tracking-wider mb-4">
+            <span className="inline-block text-sm font-sans text-terracotta uppercase tracking-wider mb-4">
               Intelligence Briefings
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-cloud mb-6">
+            <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-gray-900 mb-6">
               Strategic insights for software leaders
             </h1>
-            <p className="text-lg lg:text-xl text-cloud/60 font-sans leading-relaxed">
+            <p className="text-lg lg:text-xl text-gray-600 font-sans leading-relaxed">
               Deep dives into Outcome Architecture, technical implementation patterns, and real-world case studies from enterprise transformations.
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function BlogPage() {
           <Suspense
             fallback={
               <div className="flex items-center justify-center py-20">
-                <div className="w-8 h-8 border-2 border-boardroom/30 border-t-boardroom rounded-full animate-spin" />
+                <div className="w-8 h-8 border-2 border-terracotta/30 border-t-terracotta rounded-full animate-spin" />
               </div>
             }
           >

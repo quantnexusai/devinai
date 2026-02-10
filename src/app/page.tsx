@@ -13,7 +13,7 @@ export default function HomePage() {
   const isDemo = isDemoMode();
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-cream">
       {isDemo && <DemoBanner />}
       <Header />
       <main>

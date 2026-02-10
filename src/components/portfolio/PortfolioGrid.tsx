@@ -12,7 +12,7 @@ export function PortfolioGrid({ projects, className = '' }: PortfolioGridProps) 
   if (projects.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-cloud/60 font-sans text-lg">
+        <p className="text-gray-500 font-sans text-lg">
           No projects found matching your criteria.
         </p>
       </div>

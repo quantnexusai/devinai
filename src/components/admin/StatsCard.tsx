@@ -15,18 +15,18 @@ interface StatsCardProps {
 
 export function StatsCard({ label, value, icon: Icon, trend, suffix }: StatsCardProps) {
   return (
-    <div className="bg-white rounded-xl p-6 shadow-sm border border-[#CAF0F8]">
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-sand">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wider text-[#03045E]/50">
+          <p className="text-xs font-medium uppercase tracking-wider text-gray-500">
             {label}
           </p>
           <div className="mt-2 flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-[#00B4D8] font-mono tabular-nums">
+            <span className="text-3xl font-bold text-terracotta font-mono tabular-nums">
               {typeof value === 'number' ? value.toLocaleString() : value}
             </span>
             {suffix && (
-              <span className="text-sm text-[#03045E]/60">{suffix}</span>
+              <span className="text-sm text-gray-600">{suffix}</span>
             )}
           </div>
           {trend && (
@@ -43,13 +43,13 @@ export function StatsCard({ label, value, icon: Icon, trend, suffix }: StatsCard
               >
                 {trend.value}%
               </span>
-              <span className="text-xs text-[#03045E]/50">vs last week</span>
+              <span className="text-xs text-gray-500">vs last week</span>
             </div>
           )}
         </div>
         {Icon && (
-          <div className="w-12 h-12 bg-[#CAF0F8] rounded-lg flex items-center justify-center">
-            <Icon className="w-6 h-6 text-[#03045E]" />
+          <div className="w-12 h-12 bg-sand rounded-lg flex items-center justify-center">
+            <Icon className="w-6 h-6 text-gray-700" />
           </div>
         )}
       </div>

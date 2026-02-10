@@ -40,8 +40,8 @@ export default function AdminDashboardPage() {
       sortable: true,
       render: (lead) => (
         <div>
-          <p className="font-medium">{lead.name || 'Unknown'}</p>
-          <p className="text-xs text-[#03045E]/50">{lead.email}</p>
+          <p className="font-medium text-gray-900">{lead.name || 'Unknown'}</p>
+          <p className="text-xs text-gray-500">{lead.email}</p>
         </div>
       ),
     },
@@ -80,20 +80,20 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#03045E]">Dashboard</h1>
-          <p className="text-[#03045E]/60 mt-1">
+          <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+          <p className="text-gray-600 mt-1">
             Welcome back. Here&apos;s your overview.
           </p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-white border border-[#90E0EF] rounded-lg text-[#03045E] hover:bg-[#CAF0F8] transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 bg-white border border-sand rounded-lg text-gray-700 hover:bg-cream transition-colors">
           <RefreshCw className="w-4 h-4" />
           <span className="text-sm font-medium">Refresh</span>
         </button>
       </div>
 
       {isDemo && (
-        <div className="bg-[#00B4D8]/10 border border-[#00B4D8]/30 rounded-lg p-4">
-          <p className="text-[#03045E] text-sm">
+        <div className="bg-terracotta/10 border border-terracotta/30 rounded-lg p-4">
+          <p className="text-gray-900 text-sm">
             <strong>Demo Mode:</strong> Displaying sample data. Connect Supabase
             to see real data.
           </p>
@@ -132,10 +132,10 @@ export default function AdminDashboardPage() {
         {/* Recent Leads */}
         <div className="lg:col-span-2">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-[#03045E]">Recent Leads</h2>
+            <h2 className="text-lg font-semibold text-gray-900">Recent Leads</h2>
             <Link
               href="/admin/leads"
-              className="flex items-center gap-1 text-sm text-[#00B4D8] hover:text-[#03045E] transition-colors"
+              className="flex items-center gap-1 text-sm text-terracotta hover:text-terracotta-600 transition-colors"
             >
               View all
               <ArrowRight className="w-4 h-4" />
@@ -152,46 +152,46 @@ export default function AdminDashboardPage() {
 
         {/* Quick Actions */}
         <div>
-          <h2 className="text-lg font-semibold text-[#03045E] mb-4">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Quick Actions
           </h2>
-          <div className="bg-white rounded-xl border border-[#CAF0F8] p-4 space-y-3">
+          <div className="bg-white rounded-xl border border-sand p-4 space-y-3">
             <Link
               href="/admin/blog/new"
-              className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#CAF0F8]/50 transition-colors group"
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-cream transition-colors group"
             >
-              <div className="w-10 h-10 bg-[#90E0EF] rounded-lg flex items-center justify-center group-hover:bg-[#00B4D8] transition-colors">
-                <Plus className="w-5 h-5 text-[#03045E] group-hover:text-white" />
+              <div className="w-10 h-10 bg-sand rounded-lg flex items-center justify-center group-hover:bg-terracotta transition-colors">
+                <Plus className="w-5 h-5 text-gray-700 group-hover:text-white" />
               </div>
               <div>
-                <p className="font-medium text-[#03045E]">New Blog Post</p>
-                <p className="text-xs text-[#03045E]/50">Create a new article</p>
+                <p className="font-medium text-gray-900">New Blog Post</p>
+                <p className="text-xs text-gray-500">Create a new article</p>
               </div>
             </Link>
 
             <Link
               href="/admin/portfolio/new"
-              className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#CAF0F8]/50 transition-colors group"
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-cream transition-colors group"
             >
-              <div className="w-10 h-10 bg-[#90E0EF] rounded-lg flex items-center justify-center group-hover:bg-[#00B4D8] transition-colors">
-                <Plus className="w-5 h-5 text-[#03045E] group-hover:text-white" />
+              <div className="w-10 h-10 bg-sand rounded-lg flex items-center justify-center group-hover:bg-terracotta transition-colors">
+                <Plus className="w-5 h-5 text-gray-700 group-hover:text-white" />
               </div>
               <div>
-                <p className="font-medium text-[#03045E]">New Project</p>
-                <p className="text-xs text-[#03045E]/50">Add portfolio case study</p>
+                <p className="font-medium text-gray-900">New Project</p>
+                <p className="text-xs text-gray-500">Add portfolio case study</p>
               </div>
             </Link>
 
             <Link
               href="/admin/leads"
-              className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#CAF0F8]/50 transition-colors group"
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-cream transition-colors group"
             >
-              <div className="w-10 h-10 bg-[#90E0EF] rounded-lg flex items-center justify-center group-hover:bg-[#00B4D8] transition-colors">
-                <Users className="w-5 h-5 text-[#03045E] group-hover:text-white" />
+              <div className="w-10 h-10 bg-sand rounded-lg flex items-center justify-center group-hover:bg-terracotta transition-colors">
+                <Users className="w-5 h-5 text-gray-700 group-hover:text-white" />
               </div>
               <div>
-                <p className="font-medium text-[#03045E]">Review Leads</p>
-                <p className="text-xs text-[#03045E]/50">
+                <p className="font-medium text-gray-900">Review Leads</p>
+                <p className="text-xs text-gray-500">
                   {stats.newLeadsThisWeek} new this week
                 </p>
               </div>
@@ -199,7 +199,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* Conversion Rate Card */}
-          <div className="mt-4 bg-[#03045E] rounded-xl p-5 text-white">
+          <div className="mt-4 bg-terracotta rounded-xl p-5 text-white">
             <p className="text-xs uppercase tracking-wider text-white/60">
               Conversion Rate
             </p>

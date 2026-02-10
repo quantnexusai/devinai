@@ -20,13 +20,13 @@ export function BlogCategoryFilter({ categories, currentCategory }: BlogCategory
         href="/blog"
         className={`relative px-4 py-2 font-sans text-sm transition-colors duration-300 ${
           !activeCategory
-            ? 'text-cloud'
-            : 'text-cloud/60 hover:text-cloud'
+            ? 'text-gray-900'
+            : 'text-gray-500 hover:text-gray-900'
         }`}
       >
         All
         {!activeCategory && (
-          <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-boardroom" />
+          <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-terracotta" />
         )}
       </Link>
 
@@ -40,13 +40,13 @@ export function BlogCategoryFilter({ categories, currentCategory }: BlogCategory
             href={`/blog/category/${category.slug}`}
             className={`relative px-4 py-2 font-sans text-sm transition-colors duration-300 ${
               isActive
-                ? 'text-cloud'
-                : 'text-cloud/60 hover:text-cloud'
+                ? 'text-gray-900'
+                : 'text-gray-500 hover:text-gray-900'
             }`}
           >
             {category.name}
             {isActive && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-boardroom" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-terracotta" />
             )}
           </Link>
         );

@@ -19,9 +19,9 @@ export function IndustryFilter({
   return (
     <div className={`flex items-center gap-2 flex-wrap ${className}`}>
       {/* Filter Icon */}
-      <div className="flex items-center gap-2 pr-4 border-r border-cloud/10 mr-2">
-        <Filter className="w-4 h-4 text-cloud/60" />
-        <span className="text-sm font-sans text-cloud/60">Filter:</span>
+      <div className="flex items-center gap-2 pr-4 border-r border-sand mr-2">
+        <Filter className="w-4 h-4 text-gray-500" />
+        <span className="text-sm font-sans text-gray-500">Filter:</span>
       </div>
 
       {/* All Filter */}
@@ -31,8 +31,8 @@ export function IndustryFilter({
           px-4 py-2 rounded-lg text-sm font-sans font-medium transition-all duration-200
           ${
             activeIndustry === null
-              ? 'bg-boardroom text-midnight'
-              : 'bg-cloud/5 text-cloud/70 hover:bg-cloud/10 hover:text-cloud border border-cloud/10'
+              ? 'bg-terracotta text-white'
+              : 'bg-white text-gray-600 hover:bg-sand/50 hover:text-gray-900 border border-sand'
           }
         `}
       >
@@ -48,8 +48,8 @@ export function IndustryFilter({
             px-4 py-2 rounded-lg text-sm font-sans font-medium transition-all duration-200
             ${
               activeIndustry === industry
-                ? 'bg-boardroom text-midnight'
-                : 'bg-cloud/5 text-cloud/70 hover:bg-cloud/10 hover:text-cloud border border-cloud/10'
+                ? 'bg-terracotta text-white'
+                : 'bg-white text-gray-600 hover:bg-sand/50 hover:text-gray-900 border border-sand'
             }
           `}
         >

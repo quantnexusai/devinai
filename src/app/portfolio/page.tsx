@@ -56,7 +56,7 @@ export default function PortfolioPage() {
   }, [publishedProjects]);
 
   return (
-    <div className="min-h-screen bg-midnight">
+    <div className="min-h-screen bg-cream">
       <Header />
 
       {/* Hero Section */}
@@ -65,15 +65,15 @@ export default function PortfolioPage() {
           <ScrollReveal>
             <div className="max-w-3xl">
               <div className="flex items-center gap-3 mb-4">
-                <Briefcase className="w-5 h-5 text-boardroom" />
-                <span className="text-sm font-sans text-boardroom uppercase tracking-wider">
+                <Briefcase className="w-5 h-5 text-terracotta" />
+                <span className="text-sm font-sans text-terracotta uppercase tracking-wider">
                   Case Studies
                 </span>
               </div>
-              <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-cloud mb-6">
+              <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-gray-900 mb-6">
                 Systems that scale without drama
               </h1>
-              <p className="text-lg lg:text-xl text-cloud/60 font-sans leading-relaxed">
+              <p className="text-lg lg:text-xl text-gray-600 font-sans leading-relaxed">
                 Real transformations, measurable outcomes. Every project follows our Outcome
                 Architecture methodology to deliver predictable growth.
               </p>
@@ -82,36 +82,36 @@ export default function PortfolioPage() {
 
           {/* Stats Bar */}
           <ScrollReveal delay={200}>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 py-8 border-y border-cloud/10">
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 py-8 border-y border-sand">
               <div>
-                <span className="block font-mono text-3xl lg:text-4xl font-bold text-vault">
+                <span className="block font-mono text-3xl lg:text-4xl font-bold text-terracotta">
                   {publishedProjects.length}+
                 </span>
-                <span className="text-sm text-cloud/50 font-sans uppercase tracking-wider">
+                <span className="text-sm text-gray-500 font-sans uppercase tracking-wider">
                   Projects Delivered
                 </span>
               </div>
               <div>
-                <span className="block font-mono text-3xl lg:text-4xl font-bold text-vault">
+                <span className="block font-mono text-3xl lg:text-4xl font-bold text-terracotta">
                   {totalOutcomes.costReduction}%
                 </span>
-                <span className="text-sm text-cloud/50 font-sans uppercase tracking-wider">
+                <span className="text-sm text-gray-500 font-sans uppercase tracking-wider">
                   Avg Cost Reduction
                 </span>
               </div>
               <div>
-                <span className="block font-mono text-3xl lg:text-4xl font-bold text-vault">
+                <span className="block font-mono text-3xl lg:text-4xl font-bold text-terracotta">
                   {totalOutcomes.velocityIncrease}x
                 </span>
-                <span className="text-sm text-cloud/50 font-sans uppercase tracking-wider">
+                <span className="text-sm text-gray-500 font-sans uppercase tracking-wider">
                   Velocity Increase
                 </span>
               </div>
               <div>
-                <span className="block font-mono text-3xl lg:text-4xl font-bold text-vault">
+                <span className="block font-mono text-3xl lg:text-4xl font-bold text-terracotta">
                   99.9%
                 </span>
-                <span className="text-sm text-cloud/50 font-sans uppercase tracking-wider">
+                <span className="text-sm text-gray-500 font-sans uppercase tracking-wider">
                   Client Satisfaction
                 </span>
               </div>
@@ -143,19 +143,19 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 border-t border-cloud/10">
+      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-terracotta">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <h2 className="font-serif text-3xl lg:text-4xl text-cloud mb-6">
+            <h2 className="font-serif text-3xl lg:text-4xl text-white mb-6">
               Ready to join these success stories?
             </h2>
-            <p className="text-lg text-cloud/60 font-sans mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 font-sans mb-8 max-w-2xl mx-auto">
               Schedule a complimentary System Audit to discover how Outcome Architecture
               can transform your development velocity.
             </p>
             <a
               href="/system-audit"
-              className="btn-primary inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2 bg-white hover:bg-cream text-terracotta px-8 py-4 rounded-lg font-medium transition-colors shadow-warm"
             >
               Schedule Your System Audit
             </a>

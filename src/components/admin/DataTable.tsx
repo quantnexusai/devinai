@@ -54,40 +54,40 @@ export function DataTable<T>({
 
   const getSortIcon = (columnKey: string) => {
     if (sortColumn !== columnKey) {
-      return <ChevronsUpDown className="w-4 h-4 text-[#03045E]/30" />;
+      return <ChevronsUpDown className="w-4 h-4 text-gray-400" />;
     }
     return sortDirection === 'asc' ? (
-      <ChevronUp className="w-4 h-4 text-[#00B4D8]" />
+      <ChevronUp className="w-4 h-4 text-terracotta" />
     ) : (
-      <ChevronDown className="w-4 h-4 text-[#00B4D8]" />
+      <ChevronDown className="w-4 h-4 text-terracotta" />
     );
   };
 
   if (data.length === 0) {
     return (
-      <div className="bg-white rounded-xl border border-[#CAF0F8] p-12 text-center">
-        <p className="text-[#03045E]/60">{emptyMessage}</p>
+      <div className="bg-white rounded-xl border border-sand p-12 text-center">
+        <p className="text-gray-500">{emptyMessage}</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl border border-[#CAF0F8] overflow-hidden">
+    <div className="bg-white rounded-xl border border-sand overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="bg-[#CAF0F8]">
+            <tr className="bg-cream">
               {columns.map((column) => (
                 <th
                   key={String(column.key)}
-                  className={`px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-[#03045E]/70 ${
+                  className={`px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600 ${
                     column.width ? column.width : ''
                   }`}
                 >
                   {column.sortable ? (
                     <button
                       onClick={() => handleSort(String(column.key))}
-                      className="flex items-center gap-1 hover:text-[#03045E] transition-colors"
+                      className="flex items-center gap-1 hover:text-gray-900 transition-colors"
                     >
                       {column.label}
                       {getSortIcon(String(column.key))}
@@ -99,23 +99,23 @@ export function DataTable<T>({
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#CAF0F8]">
+          <tbody className="divide-y divide-sand">
             {sortedData.map((item, index) => (
               <tr
                 key={keyExtractor(item)}
                 onClick={() => onRowClick?.(item)}
                 className={`${
-                  index % 2 === 1 ? 'bg-[#CAF0F8]/20' : 'bg-white'
+                  index % 2 === 1 ? 'bg-cream/50' : 'bg-white'
                 } ${
                   onRowClick
-                    ? 'cursor-pointer hover:bg-[#90E0EF]/20 transition-colors'
+                    ? 'cursor-pointer hover:bg-sand/30 transition-colors'
                     : ''
                 }`}
               >
                 {columns.map((column) => (
                   <td
                     key={String(column.key)}
-                    className="px-4 py-3 text-sm text-[#03045E]"
+                    className="px-4 py-3 text-sm text-gray-900"
                   >
                     {column.render
                       ? column.render(item)

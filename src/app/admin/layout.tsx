@@ -27,8 +27,8 @@ export default function AdminLayout({
   // Show loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#CAF0F8] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#03045E]" />
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-terracotta" />
       </div>
     );
   }
@@ -36,14 +36,14 @@ export default function AdminLayout({
   // In non-demo mode, don't render if not authenticated as admin
   if (!isDemo && (!user || !isAdmin)) {
     return (
-      <div className="min-h-screen bg-[#CAF0F8] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#03045E]" />
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-terracotta" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#CAF0F8] flex">
+    <div className="min-h-screen bg-cream flex">
       <AdminNav />
       <main className="flex-1 overflow-auto">
         <div className="p-8">{children}</div>

@@ -13,7 +13,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className={`group block bg-midnight-600 rounded-lg overflow-hidden border border-transparent hover:border-boardroom transition-all duration-300 ${
+      className={`group block bg-white rounded-2xl overflow-hidden border border-sand hover:border-taupe hover:shadow-warm transition-all duration-300 ${
         featured ? 'md:col-span-2' : ''
       }`}
     >
@@ -27,13 +27,13 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-boardroom/30 to-midnight-400" />
+          <div className="absolute inset-0 bg-gradient-to-br from-terracotta/20 to-taupe/30" />
         )}
 
         {/* Category Badge */}
         {post.category && (
           <div className="absolute top-4 left-4">
-            <span className="inline-block px-3 py-1 bg-boardroom text-midnight text-xs font-sans font-medium rounded">
+            <span className="inline-block px-3 py-1 bg-terracotta text-white text-xs font-sans font-medium rounded-full">
               {post.category.name}
             </span>
           </div>
@@ -43,7 +43,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
       {/* Content */}
       <div className="p-6">
         {/* Title */}
-        <h3 className={`font-serif text-cloud group-hover:text-boardroom transition-colors duration-300 mb-3 ${
+        <h3 className={`font-serif text-gray-900 group-hover:text-terracotta transition-colors duration-300 mb-3 ${
           featured ? 'text-2xl lg:text-3xl' : 'text-xl'
         }`}>
           {post.title}
@@ -51,7 +51,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
 
         {/* Excerpt */}
         {post.excerpt && (
-          <p className={`text-cloud/60 font-sans leading-relaxed mb-4 ${
+          <p className={`text-gray-600 font-sans leading-relaxed mb-4 ${
             featured ? 'text-base' : 'text-sm'
           }`}>
             {featured ? post.excerpt : post.excerpt.slice(0, 120) + (post.excerpt.length > 120 ? '...' : '')}
@@ -59,7 +59,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
         )}
 
         {/* Meta */}
-        <div className="flex items-center gap-4 text-sm text-cloud/50 font-sans">
+        <div className="flex items-center gap-4 text-sm text-gray-500 font-sans">
           {/* Author */}
           {post.author && (
             <div className="flex items-center gap-2">
@@ -72,8 +72,8 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
                   className="rounded-full"
                 />
               ) : (
-                <div className="w-6 h-6 rounded-full bg-boardroom/20 flex items-center justify-center">
-                  <span className="text-xs font-medium text-boardroom">
+                <div className="w-6 h-6 rounded-full bg-terracotta/20 flex items-center justify-center">
+                  <span className="text-xs font-medium text-terracotta">
                     {getInitials(post.author.full_name)}
                   </span>
                 </div>

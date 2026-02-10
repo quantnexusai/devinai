@@ -11,11 +11,11 @@ export function BlogGrid({ posts, showFeatured = true }: BlogGridProps) {
   if (posts.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
-        <div className="w-16 h-16 bg-midnight-400 rounded-lg flex items-center justify-center mb-6">
-          <FileText className="w-8 h-8 text-cloud/40" />
+        <div className="w-16 h-16 bg-sand rounded-lg flex items-center justify-center mb-6">
+          <FileText className="w-8 h-8 text-taupe" />
         </div>
-        <h3 className="font-serif text-xl text-cloud mb-2">No posts found</h3>
-        <p className="text-cloud/60 font-sans max-w-md">
+        <h3 className="font-serif text-xl text-gray-900 mb-2">No posts found</h3>
+        <p className="text-gray-600 font-sans max-w-md">
           There are no posts in this category yet. Check back soon for new intelligence briefings.
         </p>
       </div>

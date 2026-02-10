@@ -33,12 +33,12 @@ export function AdminNav() {
   };
 
   return (
-    <aside className="w-64 min-h-screen bg-[#03045E] text-white flex flex-col">
+    <aside className="w-64 min-h-screen bg-gray-900 text-white flex flex-col">
       {/* Logo */}
       <div className="p-6 border-b border-white/10">
         <Link href="/admin" className="block">
           <h1 className="text-xl font-bold tracking-tight">DevinAI</h1>
-          <p className="text-[#90E0EF] text-xs mt-0.5">Admin Dashboard</p>
+          <p className="text-terracotta text-xs mt-0.5">Admin Dashboard</p>
         </Link>
       </div>
 
@@ -55,7 +55,7 @@ export function AdminNav() {
                   href={item.href}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                     active
-                      ? 'bg-[#00B4D8] text-white'
+                      ? 'bg-terracotta text-white'
                       : 'text-white/70 hover:bg-white/10 hover:text-white'
                   }`}
                 >
@@ -82,7 +82,7 @@ export function AdminNav() {
       {/* User info */}
       <div className="p-4 border-t border-white/10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#00B4D8] rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-terracotta rounded-full flex items-center justify-center">
             <span className="text-sm font-semibold">
               {profile?.full_name?.charAt(0) || profile?.email?.charAt(0) || 'A'}
             </span>
@@ -93,7 +93,7 @@ export function AdminNav() {
             </p>
             <p className="text-xs text-white/60 truncate">{profile?.email}</p>
             {isDemo && (
-              <span className="inline-block text-xs text-[#90E0EF] mt-0.5">
+              <span className="inline-block text-xs text-terracotta mt-0.5">
                 Demo Mode
               </span>
             )}

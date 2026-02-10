@@ -30,9 +30,9 @@ export function PortfolioCard({
     <Link
       href={`/portfolio/${project.slug}`}
       className={`
-        group block rounded-xl overflow-hidden border border-cloud/10
-        hover:border-boardroom/50 transition-all duration-300
-        bg-midnight-600 hover:bg-midnight-500
+        group block rounded-2xl overflow-hidden border border-sand
+        hover:border-taupe hover:shadow-warm transition-all duration-300
+        bg-white
         ${featured ? 'md:col-span-2 lg:row-span-2' : ''}
         ${className}
       `}
@@ -45,12 +45,12 @@ export function PortfolioCard({
         `}
       >
         {/* Gradient Placeholder */}
-        <div className="absolute inset-0 bg-gradient-to-br from-midnight via-boardroom/20 to-cloud/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-terracotta/20 via-taupe/20 to-sand/30" />
 
         {/* Industry Badge */}
         {project.industry && (
           <div className="absolute top-4 left-4">
-            <span className="inline-block px-3 py-1 bg-boardroom text-midnight text-xs font-sans font-semibold rounded uppercase tracking-wide">
+            <span className="inline-block px-3 py-1 bg-terracotta text-white text-xs font-sans font-semibold rounded-full uppercase tracking-wide">
               {project.industry}
             </span>
           </div>
@@ -58,16 +58,16 @@ export function PortfolioCard({
 
         {/* Duration Badge */}
         {project.duration && (
-          <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-midnight/80 backdrop-blur-sm px-3 py-1 rounded">
-            <Clock className="w-3.5 h-3.5 text-cloud/60" />
-            <span className="text-xs font-sans text-cloud/80">{project.duration}</span>
+          <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+            <Clock className="w-3.5 h-3.5 text-gray-500" />
+            <span className="text-xs font-sans text-gray-700">{project.duration}</span>
           </div>
         )}
 
         {/* Hover Arrow */}
         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-10 h-10 rounded-full bg-boardroom flex items-center justify-center">
-            <ArrowUpRight className="w-5 h-5 text-midnight" />
+          <div className="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-white" />
           </div>
         </div>
       </div>
@@ -75,14 +75,14 @@ export function PortfolioCard({
       {/* Content */}
       <div className={`p-6 ${featured ? 'lg:p-8' : ''}`}>
         {/* Client Name */}
-        <span className="block text-xs font-sans font-semibold text-cloud/50 uppercase tracking-widest mb-2">
+        <span className="block text-xs font-sans font-semibold text-gray-500 uppercase tracking-widest mb-2">
           {project.client_name}
         </span>
 
         {/* Project Title */}
         <h3
           className={`
-            font-serif text-cloud group-hover:text-boardroom transition-colors duration-300 mb-4
+            font-serif text-gray-900 group-hover:text-terracotta transition-colors duration-300 mb-4
             ${featured ? 'text-2xl lg:text-3xl' : 'text-xl'}
           `}
         >
@@ -92,10 +92,10 @@ export function PortfolioCard({
         {/* Key Outcome Metric */}
         {primaryOutcome && (
           <div className="flex items-baseline gap-2 mb-4">
-            <span className="font-mono text-3xl font-bold text-vault">
+            <span className="font-mono text-3xl font-bold text-terracotta">
               {outcomeChange}%
             </span>
-            <span className="text-sm text-cloud/60 font-sans">
+            <span className="text-sm text-gray-600 font-sans">
               {primaryOutcome.metric.toLowerCase()} improvement
             </span>
           </div>
