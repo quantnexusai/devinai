@@ -242,10 +242,6 @@ export default function ServicesPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {processSteps.map((step, index) => (
                 <div key={index} className="relative">
-                  {/* Connector line */}
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-sand -translate-x-4" />
-                  )}
                   <div className="text-5xl font-serif font-bold text-terracotta/20 mb-4">
                     {step.number}
                   </div>
