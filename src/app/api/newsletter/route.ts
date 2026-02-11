@@ -124,39 +124,19 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Production mode: insert into database
-    const { data, error } = await supabase
+    // Production mode: insert into database (use insert, not upsert - RLS blocks anonymous updates)
+    const { error } = await supabase
       .from('newsletter_subscribers')
-      .upsert(
-        {
-          email: email.toLowerCase().trim(),
-          source: source || 'website',
-          active: true,
-          subscribed_at: new Date().toISOString(),
-        },
-        {
-          onConflict: 'email',
-          ignoreDuplicates: false,
-        }
-      )
-      .select()
-      .single();
+      .insert({
+        email: email.toLowerCase().trim(),
+        source: source || 'website',
+        active: true,
+        subscribed_at: new Date().toISOString(),
+      });
 
-    if (error) {
+    // Handle duplicate email gracefully (error code 23505 = unique violation)
+    if (error && error.code !== '23505') {
       console.error('Newsletter subscription error:', error);
-
-      // Handle duplicate email gracefully
-      if (error.code === '23505') {
-        // Still send the framework email for whitepaper requests
-        if (source === 'whitepaper') {
-          await sendFrameworkEmail(email.toLowerCase().trim());
-        }
-        return NextResponse.json({
-          success: true,
-          message: 'You are already subscribed!',
-        });
-      }
-
       return NextResponse.json(
         { error: 'Failed to subscribe. Please try again.' },
         { status: 500 }
@@ -170,8 +150,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Successfully subscribed!',
-      data,
+      message: error?.code === '23505' ? 'You are already subscribed!' : 'Successfully subscribed!',
     });
   } catch (error) {
     console.error('Newsletter API error:', error);
