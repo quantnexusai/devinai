@@ -27,12 +27,6 @@ export default function AdminLoginPage() {
     setSubmitting(true);
 
     try {
-      // In demo mode, simulate success
-      if (isDemo) {
-        router.push('/admin');
-        return;
-      }
-
       const { error } = await signIn(email, password);
       if (error) {
         setError('Invalid email or password');

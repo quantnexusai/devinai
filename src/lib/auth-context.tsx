@@ -31,8 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Check if we're in demo mode
     if (isDemoMode()) {
       setIsDemo(true);
-      setUser(demoUser as unknown as User);
-      setProfile(demoProfile);
+      // Don't auto-login in demo mode - require going through login page
       setLoading(false);
       return;
     }
@@ -93,6 +92,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signIn = async (email: string, password: string) => {
     if (isDemo) {
+      // In demo mode, set the demo user when signing in
+      setUser(demoUser as unknown as User);
+      setProfile(demoProfile);
       return { error: null };
     }
 
@@ -106,6 +108,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signInWithMagicLink = async (email: string) => {
     if (isDemo) {
+      // In demo mode, set the demo user when signing in
+      setUser(demoUser as unknown as User);
+      setProfile(demoProfile);
       return { error: null };
     }
 
@@ -139,7 +144,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     if (isDemo) {
-      // In demo mode, redirect to home page
+      // In demo mode, clear the user and redirect to home
+      setUser(null);
+      setProfile(null);
       window.location.href = '/';
       return;
     }
