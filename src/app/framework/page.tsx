@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
-import { FileText, Download, Check, Loader2, ArrowRight, Lock } from 'lucide-react';
+import { FileText, Check, Loader2, ArrowRight, Lock, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const frameworkHighlights = [
@@ -136,7 +136,7 @@ export default function FrameworkPage() {
                   </div>
                 </div>
 
-                {/* Email Form / Download Button */}
+                {/* Email Form / Success Message */}
                 {!isUnlocked ? (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
@@ -153,7 +153,7 @@ export default function FrameworkPage() {
                           'focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent',
                           'transition-all duration-200 border-sand'
                         )}
-                        placeholder="Enter your email to download"
+                        placeholder="Enter your email"
                       />
                     </div>
                     {error && (
@@ -171,29 +171,30 @@ export default function FrameworkPage() {
                         </>
                       ) : (
                         <>
-                          Unlock Free Download
+                          Send Me the Framework
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </>
                       )}
                     </button>
                     <p className="text-gray-500 text-xs text-center">
-                      By downloading, you agree to receive occasional updates. Unsubscribe anytime.
+                      We&apos;ll send the PDF directly to your inbox. Unsubscribe anytime.
                     </p>
                   </form>
                 ) : (
-                  <div className="text-center">
+                  <div className="text-center py-4">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-terracotta/20 mb-4">
                       <Check className="w-8 h-8 text-terracotta" />
                     </div>
-                    <h3 className="text-gray-900 font-semibold mb-2">Download Unlocked!</h3>
-                    <a
-                      href="/downloads/outcome-architecture-framework.pdf"
-                      download
-                      className="inline-flex items-center justify-center px-6 py-3 bg-terracotta hover:bg-terracotta/90 text-white rounded-xl font-medium transition-all duration-200 shadow-warm"
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Download PDF
-                    </a>
+                    <h3 className="text-xl font-serif font-semibold text-gray-900 mb-2">
+                      Check Your Inbox
+                    </h3>
+                    <p className="text-gray-600 text-sm max-w-xs mx-auto">
+                      We&apos;ve sent the Outcome Architecture Framework to <strong>{email}</strong>.
+                      It should arrive within a few minutes.
+                    </p>
+                    <p className="text-gray-400 text-xs mt-4">
+                      Don&apos;t see it? Check your spam folder.
+                    </p>
                   </div>
                 )}
               </div>
