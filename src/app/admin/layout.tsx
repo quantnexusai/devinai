@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import { AdminNav } from '@/components/admin/AdminNav';
 import { Loader2 } from 'lucide-react';
@@ -11,21 +11,25 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { user, loading, isAdmin, isDemo } = useAuth();
+  const { user, loading, isAdmin } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
+
+  // Check if we're on the login page
+  const isLoginPage = pathname === '/admin/login';
 
   useEffect(() => {
-    // In demo mode, allow access
-    if (isDemo) return;
+    // Don't redirect if on login page
+    if (isLoginPage) return;
 
     // If not loading and no user or not admin, redirect to login
     if (!loading && (!user || !isAdmin)) {
       router.push('/admin/login');
     }
-  }, [user, loading, isAdmin, isDemo, router]);
+  }, [user, loading, isAdmin, router, isLoginPage]);
 
-  // Show loading state
-  if (loading) {
+  // Show loading state (but not on login page)
+  if (loading && !isLoginPage) {
     return (
       <div className="min-h-screen bg-cream flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-terracotta" />
@@ -33,8 +37,13 @@ export default function AdminLayout({
     );
   }
 
-  // In non-demo mode, don't render if not authenticated as admin
-  if (!isDemo && (!user || !isAdmin)) {
+  // Login page renders without the admin sidebar
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
+
+  // Not authenticated - show loading while redirecting
+  if (!user || !isAdmin) {
     return (
       <div className="min-h-screen bg-cream flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-terracotta" />
@@ -42,6 +51,7 @@ export default function AdminLayout({
     );
   }
 
+  // Authenticated - render full admin layout
   return (
     <div className="min-h-screen bg-cream flex">
       <AdminNav />
