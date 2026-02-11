@@ -3,14 +3,14 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
-import { Mail, ArrowLeft, CheckCircle, Loader2 } from 'lucide-react';
+import { Mail, ArrowLeft, CheckCircle, Loader2, Lock } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminLoginPage() {
-  const { user, loading, isAdmin, signInWithMagicLink, isDemo } = useAuth();
+  const { user, loading, isAdmin, signIn, isDemo } = useAuth();
   const router = useRouter();
   const [email, setEmail] = useState('');
-  const [sent, setSent] = useState(false);
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -29,18 +29,15 @@ export default function AdminLoginPage() {
     try {
       // In demo mode, simulate success
       if (isDemo) {
-        setSent(true);
-        setTimeout(() => {
-          router.push('/admin');
-        }, 1500);
+        router.push('/admin');
         return;
       }
 
-      const { error } = await signInWithMagicLink(email);
+      const { error } = await signIn(email, password);
       if (error) {
-        setError(error.message);
+        setError('Invalid email or password');
       } else {
-        setSent(true);
+        router.push('/admin');
       }
     } catch {
       setError('An unexpected error occurred');
@@ -51,19 +48,19 @@ export default function AdminLoginPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#CAF0F8] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#03045E]" />
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-terracotta" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#CAF0F8] flex flex-col">
+    <div className="min-h-screen bg-cream flex flex-col">
       {/* Back to site link */}
       <div className="p-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#03045E]/70 hover:text-[#03045E] transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Back to Site</span>
@@ -75,100 +72,118 @@ export default function AdminLoginPage() {
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-[#03045E] tracking-tight">
+            <h1 className="text-3xl font-serif font-bold text-gray-900 tracking-tight">
               DevinAI
             </h1>
-            <p className="text-[#03045E]/60 mt-2">Admin Dashboard</p>
+            <p className="text-gray-600 mt-2">Admin Dashboard</p>
           </div>
 
           {/* Card */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            {sent ? (
-              /* Success state */
-              <div className="text-center py-4">
-                <div className="w-16 h-16 bg-[#90E0EF] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-[#03045E]" />
-                </div>
-                <h2 className="text-xl font-semibold text-[#03045E] mb-2">
-                  Check your email
-                </h2>
-                <p className="text-[#03045E]/60 text-sm">
-                  We sent a magic link to <strong>{email}</strong>. Click the link
-                  to sign in.
-                </p>
-                {isDemo && (
-                  <p className="text-[#00B4D8] text-sm mt-4">
-                    Demo mode: Redirecting to dashboard...
-                  </p>
-                )}
+          <div className="bg-white rounded-2xl shadow-warm border border-sand p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-terracotta/20 rounded-xl flex items-center justify-center">
+                <Lock className="w-5 h-5 text-terracotta" />
               </div>
-            ) : (
-              /* Form */
-              <>
-                <h2 className="text-xl font-semibold text-[#03045E] mb-6">
-                  Sign in with magic link
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">
+                  Admin Sign In
                 </h2>
+                <p className="text-sm text-gray-500">Authorized access only</p>
+              </div>
+            </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-[#03045E]/80 mb-1.5"
-                    >
-                      Email address
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#03045E]/40" />
-                      <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="admin@example.com"
-                        required
-                        className="w-full pl-10 pr-4 py-2.5 border border-[#90E0EF] rounded-lg
-                          focus:outline-none focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent
-                          text-[#03045E] placeholder:text-[#03045E]/40"
-                      />
-                    </div>
-                  </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1.5"
+                >
+                  Email address
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="admin@devinai.com"
+                    required
+                    className="w-full pl-10 pr-4 py-3 border border-sand rounded-xl
+                      focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent
+                      text-gray-900 placeholder:text-gray-400"
+                  />
+                </div>
+              </div>
 
-                  {error && (
-                    <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">
-                      {error}
-                    </div>
-                  )}
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-1.5"
+                >
+                  Password
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    required
+                    className="w-full pl-10 pr-4 py-3 border border-sand rounded-xl
+                      focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent
+                      text-gray-900 placeholder:text-gray-400"
+                  />
+                </div>
+              </div>
 
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full bg-[#03045E] text-white py-2.5 rounded-lg font-medium
-                      hover:bg-[#03045E]/90 transition-colors disabled:opacity-50
-                      disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    {submitting ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      'Send Magic Link'
-                    )}
-                  </button>
-                </form>
+              {error && (
+                <div className="text-red-600 text-sm bg-red-50 p-3 rounded-xl">
+                  {error}
+                </div>
+              )}
 
-                {isDemo && (
-                  <p className="text-[#00B4D8] text-xs text-center mt-4">
-                    Demo mode active - any email will work
-                  </p>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full bg-terracotta text-white py-3 rounded-xl font-medium
+                  hover:bg-terracotta/90 transition-colors disabled:opacity-50
+                  disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {submitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Signing in...
+                  </>
+                ) : (
+                  'Sign In'
                 )}
-              </>
+              </button>
+            </form>
+
+            {isDemo && (
+              <div className="mt-4 p-3 bg-terracotta/10 rounded-xl">
+                <p className="text-terracotta text-xs text-center">
+                  Demo mode: Click Sign In to access the dashboard
+                </p>
+              </div>
             )}
+
+            <div className="mt-6 pt-6 border-t border-sand">
+              <Link
+                href="/reset-password"
+                className="block text-center text-sm text-gray-500 hover:text-terracotta transition-colors"
+              >
+                Forgot your password?
+              </Link>
+            </div>
           </div>
 
           {/* Footer */}
-          <p className="text-center text-[#03045E]/50 text-sm mt-6">
-            Protected admin area. Authorized personnel only.
+          <p className="text-center text-gray-500 text-sm mt-6">
+            This is a protected area. Unauthorized access is prohibited.
           </p>
         </div>
       </div>

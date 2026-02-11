@@ -78,7 +78,7 @@ export function Header() {
         {/* CTA Button + Admin Link - Desktop */}
         <div className="hidden md:flex items-center gap-4">
           <Link
-            href="/admin"
+            href="/admin/login"
             className="text-sm text-gray-500 hover:text-terracotta transition-colors duration-200"
           >
             Admin
@@ -129,7 +129,7 @@ export function Header() {
 
           {/* Admin Link - Mobile */}
           <Link
-            href="/admin"
+            href="/admin/login"
             className="block px-4 py-3 rounded-lg text-base font-medium text-gray-500 hover:bg-cream transition-colors duration-200"
           >
             Admin
