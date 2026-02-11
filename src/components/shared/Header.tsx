@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 const navigation = [
-  { name: 'Services', href: '/framework' },
+  { name: 'Services', href: '/services' },
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },

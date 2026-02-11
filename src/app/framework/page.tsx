@@ -98,20 +98,38 @@ export default function FrameworkPage() {
                 {/* PDF Preview Mockup */}
                 <div className="relative bg-white border border-sand rounded-2xl p-8 mb-8 shadow-warm">
                   <div className="aspect-[8.5/11] bg-cream border border-sand rounded-xl overflow-hidden relative">
-                    {/* Mock PDF Content */}
-                    <div className="absolute inset-0 p-8">
-                      <div className="h-4 w-3/4 bg-sand rounded mb-4" />
-                      <div className="h-3 w-full bg-sand/50 rounded mb-2" />
-                      <div className="h-3 w-5/6 bg-sand/50 rounded mb-2" />
-                      <div className="h-3 w-4/5 bg-sand/50 rounded mb-6" />
-                      <div className="h-3 w-1/2 bg-sand rounded mb-4" />
-                      <div className="h-3 w-full bg-sand/50 rounded mb-2" />
-                      <div className="h-3 w-5/6 bg-sand/50 rounded mb-2" />
-                      <div className="h-3 w-3/4 bg-sand/50 rounded mb-6" />
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="aspect-square bg-terracotta/10 rounded" />
-                        <div className="aspect-square bg-terracotta/10 rounded" />
-                        <div className="aspect-square bg-terracotta/10 rounded" />
+                    {/* Mock PDF Content - Whitepaper Preview */}
+                    <div className="absolute inset-0 p-6">
+                      {/* Header */}
+                      <div className="text-center mb-6">
+                        <div className="h-3 w-1/3 bg-terracotta/30 rounded mx-auto mb-2" />
+                        <div className="h-5 w-3/4 bg-sand rounded mx-auto mb-1" />
+                        <div className="h-5 w-2/3 bg-sand rounded mx-auto" />
+                      </div>
+                      {/* Intro paragraph */}
+                      <div className="space-y-1.5 mb-6">
+                        <div className="h-2 w-full bg-sand/50 rounded" />
+                        <div className="h-2 w-5/6 bg-sand/50 rounded" />
+                        <div className="h-2 w-4/5 bg-sand/50 rounded" />
+                      </div>
+                      {/* Section heading */}
+                      <div className="h-3 w-1/2 bg-sand rounded mb-3" />
+                      {/* Content */}
+                      <div className="space-y-1.5 mb-4">
+                        <div className="h-2 w-full bg-sand/40 rounded" />
+                        <div className="h-2 w-5/6 bg-sand/40 rounded" />
+                      </div>
+                      {/* Three pillars diagram */}
+                      <div className="grid grid-cols-3 gap-3 mt-4">
+                        <div className="aspect-[3/4] bg-terracotta/10 rounded-lg flex items-center justify-center">
+                          <span className="text-terracotta/40 font-serif text-lg">I</span>
+                        </div>
+                        <div className="aspect-[3/4] bg-terracotta/10 rounded-lg flex items-center justify-center">
+                          <span className="text-terracotta/40 font-serif text-lg">II</span>
+                        </div>
+                        <div className="aspect-[3/4] bg-terracotta/10 rounded-lg flex items-center justify-center">
+                          <span className="text-terracotta/40 font-serif text-lg">III</span>
+                        </div>
                       </div>
                     </div>
 
@@ -119,8 +137,8 @@ export default function FrameworkPage() {
                     {!isUnlocked && (
                       <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center">
                         <div className="text-center">
-                          <Lock className="w-12 h-12 text-taupe mx-auto mb-3" />
-                          <p className="text-gray-600 text-sm">Enter your email to unlock</p>
+                          <Mail className="w-12 h-12 text-taupe mx-auto mb-3" />
+                          <p className="text-gray-600 text-sm">Enter your email to receive this guide</p>
                         </div>
                       </div>
                     )}
@@ -153,7 +171,7 @@ export default function FrameworkPage() {
                           'focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent',
                           'transition-all duration-200 border-sand'
                         )}
-                        placeholder="Enter your email"
+                        placeholder="your@email.com"
                       />
                     </div>
                     {error && (
@@ -177,7 +195,7 @@ export default function FrameworkPage() {
                       )}
                     </button>
                     <p className="text-gray-500 text-xs text-center">
-                      We&apos;ll send the PDF directly to your inbox. Unsubscribe anytime.
+                      The framework PDF will be delivered to your inbox. No spam, ever.
                     </p>
                   </form>
                 ) : (
