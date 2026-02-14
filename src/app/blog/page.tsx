@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
 import { BlogGrid } from '@/components/blog/BlogGrid';
@@ -97,13 +97,15 @@ export default function BlogPage() {
             <>
               {/* Category Filter */}
               <div className="mb-12 border-b border-sand pb-4">
-                <BlogCategoryFilter categories={categories} />
+                <Suspense fallback={<div className="h-10" />}>
+                  <BlogCategoryFilter categories={categories} />
+                </Suspense>
               </div>
 
               {/* Blog Grid */}
-              <BlogGrid posts={posts} showFeatured />
-
-              {posts.length === 0 && (
+              {posts.length > 0 ? (
+                <BlogGrid posts={posts} showFeatured />
+              ) : (
                 <div className="text-center py-20">
                   <p className="text-gray-500">No posts published yet.</p>
                 </div>
