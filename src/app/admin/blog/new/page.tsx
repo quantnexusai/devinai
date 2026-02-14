@@ -8,6 +8,7 @@ import { supabase, isDemoMode } from '@/lib/supabase';
 import { demoBlogCategories } from '@/lib/demo-data';
 import type { BlogCategory } from '@/lib/types';
 import { ArrowLeft, Save, Loader2 } from 'lucide-react';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 
 export default function NewBlogPostPage() {
   const router = useRouter();
@@ -226,14 +227,13 @@ export default function NewBlogPostPage() {
         {/* Cover Image */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Cover Image URL
+            Cover Image
           </label>
-          <input
-            type="url"
+          <ImageUpload
             value={formData.cover_image}
-            onChange={(e) => setFormData((prev) => ({ ...prev, cover_image: e.target.value }))}
-            className="w-full px-4 py-3 border border-sand rounded-lg focus:outline-none focus:ring-2 focus:ring-terracotta text-gray-900"
-            placeholder="https://example.com/image.jpg"
+            onChange={(url) => setFormData((prev) => ({ ...prev, cover_image: url }))}
+            bucket="images"
+            folder="blog"
           />
         </div>
 

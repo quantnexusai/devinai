@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useAuth } from '@/lib/auth-context';
 import { supabase, isDemoMode } from '@/lib/supabase';
 import { ArrowLeft, Save, Loader2, Plus, X } from 'lucide-react';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 
 export default function NewPortfolioProjectPage() {
   const router = useRouter();
@@ -354,14 +355,13 @@ export default function NewPortfolioProjectPage() {
         {/* Featured Image */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Featured Image URL
+            Featured Image
           </label>
-          <input
-            type="url"
+          <ImageUpload
             value={formData.featured_image}
-            onChange={(e) => setFormData((prev) => ({ ...prev, featured_image: e.target.value }))}
-            className="w-full px-4 py-3 border border-sand rounded-lg focus:outline-none focus:ring-2 focus:ring-terracotta text-gray-900"
-            placeholder="https://example.com/image.jpg"
+            onChange={(url) => setFormData((prev) => ({ ...prev, featured_image: url }))}
+            bucket="images"
+            folder="portfolio"
           />
         </div>
 
