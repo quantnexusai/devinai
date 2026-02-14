@@ -2,14 +2,14 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
 import { TipTapRenderer } from '@/components/blog/TipTapRenderer';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { NewsletterCTA } from '@/components/blog/NewsletterCTA';
-import { demoBlogPosts, demoProfile } from '@/lib/demo-data';
-import { formatDate, getInitials } from '@/lib/utils';
+import { demoBlogPosts } from '@/lib/demo-data';
+import { formatShortDate } from '@/lib/utils';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     relatedPosts.push(...otherPosts);
   }
 
-  const author = post.author || demoProfile;
+  // const author = post.author || demoProfile;
 
   return (
     <div className="min-h-screen bg-midnight">
@@ -110,31 +110,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-6 text-cloud/60 font-sans text-sm mb-8">
-            {/* Author */}
-            <div className="flex items-center gap-2">
-              {author.avatar_url ? (
-                <Image
-                  src={author.avatar_url}
-                  alt={author.full_name || 'Author'}
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-              ) : (
-                <div className="w-8 h-8 rounded-full bg-boardroom/20 flex items-center justify-center">
-                  <span className="text-xs font-medium text-boardroom">
-                    {getInitials(author.full_name)}
-                  </span>
-                </div>
-              )}
-              <span className="text-cloud">{author.full_name || 'Anonymous'}</span>
-            </div>
-
             {/* Date */}
             {post.published_at && (
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                <span>{formatDate(post.published_at)}</span>
+                <span>{formatShortDate(post.published_at)}</span>
               </div>
             )}
 
@@ -165,50 +145,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Article Content */}
       <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-            {/* Main Content */}
-            <article className="lg:col-span-3">
-              <TipTapRenderer content={post.content} />
-            </article>
-
-            {/* Sidebar */}
-            <aside className="lg:col-span-1">
-              <div className="sticky top-32">
-                {/* Author Bio */}
-                <div className="bg-midnight-600 rounded-lg p-6 border border-cloud/10">
-                  <h3 className="font-serif text-lg text-cloud mb-4">About the Author</h3>
-                  <div className="flex items-center gap-3 mb-4">
-                    {author.avatar_url ? (
-                      <Image
-                        src={author.avatar_url}
-                        alt={author.full_name || 'Author'}
-                        width={48}
-                        height={48}
-                        className="rounded-full"
-                      />
-                    ) : (
-                      <div className="w-12 h-12 rounded-full bg-boardroom/20 flex items-center justify-center">
-                        <span className="text-sm font-medium text-boardroom">
-                          {getInitials(author.full_name)}
-                        </span>
-                      </div>
-                    )}
-                    <div>
-                      <span className="block text-cloud font-sans font-medium">
-                        {author.full_name || 'Anonymous'}
-                      </span>
-                      <span className="block text-sm text-cloud/60 font-sans">
-                        {author.role === 'admin' ? 'Principal Architect' : 'Team Member'}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-sm text-cloud/60 font-sans leading-relaxed">
-                    Building systems that scale predictably. Specializing in Outcome Architecture and enterprise transformations.
-                  </p>
-                </div>
-              </div>
-            </aside>
-          </div>
+          {/* Main Content */}
+          <article className="max-w-3xl">
+            <TipTapRenderer content={post.content} />
+          </article>
         </div>
       </section>
 

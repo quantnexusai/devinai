@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calendar, Clock, User } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import type { BlogPost } from '@/lib/types';
-import { formatDate, getInitials } from '@/lib/utils';
+import { formatShortDate } from '@/lib/utils';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -60,33 +60,11 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
 
         {/* Meta */}
         <div className="flex items-center gap-4 text-sm text-gray-500 font-sans">
-          {/* Author */}
-          {post.author && (
-            <div className="flex items-center gap-2">
-              {post.author.avatar_url ? (
-                <Image
-                  src={post.author.avatar_url}
-                  alt={post.author.full_name || 'Author'}
-                  width={24}
-                  height={24}
-                  className="rounded-full"
-                />
-              ) : (
-                <div className="w-6 h-6 rounded-full bg-terracotta/20 flex items-center justify-center">
-                  <span className="text-xs font-medium text-terracotta">
-                    {getInitials(post.author.full_name)}
-                  </span>
-                </div>
-              )}
-              <span>{post.author.full_name || 'Anonymous'}</span>
-            </div>
-          )}
-
           {/* Date */}
           {post.published_at && (
             <div className="flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5" />
-              <span>{formatDate(post.published_at)}</span>
+              <span>{formatShortDate(post.published_at)}</span>
             </div>
           )}
 
