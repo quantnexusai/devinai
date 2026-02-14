@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowRight, Clock } from 'lucide-react';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { demoBlogPosts } from '@/lib/demo-data';
-import { formatDate } from '@/lib/utils';
+import { formatShortDate } from '@/lib/utils';
 
 export function IntelligenceBriefingsSection() {
   const latestPosts = demoBlogPosts.slice(0, 3);
@@ -89,7 +89,7 @@ export function IntelligenceBriefingsSection() {
                     {/* Meta */}
                     <div className="mt-6 pt-4 border-t border-sand flex items-center justify-between text-sm">
                       <span className="text-gray-500">
-                        {post.published_at ? formatDate(post.published_at) : 'Draft'}
+                        {post.published_at ? formatShortDate(post.published_at) : 'Draft'}
                       </span>
                       <div className="flex items-center text-gray-500">
                         <Clock className="w-4 h-4 mr-1" />
