@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase, isDemoMode } from '@/lib/supabase';
+import { supabaseAdmin, isDemoMode } from '@/lib/supabase';
 
 const ALLOWED_TYPES = [
   'image/jpeg',
@@ -59,8 +59,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Production mode: upload to Supabase Storage
+    if (!supabaseAdmin) {
+      console.error('Upload error: SUPABASE_SECRET_KEY not configured');
+      return NextResponse.json(
+        { error: 'Storage not configured. Please set SUPABASE_SECRET_KEY.' },
+        { status: 500 }
+      );
+    }
+
     const fileBuffer = await file.arrayBuffer();
-    const fileExtension = file.name.split('.').pop() || '';
     const timestamp = Date.now();
     const sanitizedName = file.name
       .replace(/[^a-zA-Z0-9.-]/g, '-')
@@ -69,7 +76,7 @@ export async function POST(request: NextRequest) {
       ? `${folder}/${timestamp}-${sanitizedName}`
       : `${timestamp}-${sanitizedName}`;
 
-    const { data, error } = await supabase.storage
+    const { data, error } = await supabaseAdmin.storage
       .from(bucket)
       .upload(filePath, fileBuffer, {
         contentType: file.type,
@@ -80,13 +87,13 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error('Upload error:', error);
       return NextResponse.json(
-        { error: 'Failed to upload file. Please try again.' },
+        { error: `Upload failed: ${error.message}` },
         { status: 500 }
       );
     }
 
     // Get public URL
-    const { data: urlData } = supabase.storage
+    const { data: urlData } = supabaseAdmin.storage
       .from(bucket)
       .getPublicUrl(data.path);
 
