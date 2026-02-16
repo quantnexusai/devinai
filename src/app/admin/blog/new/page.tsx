@@ -9,7 +9,6 @@ import { demoBlogCategories } from '@/lib/demo-data';
 import type { BlogCategory } from '@/lib/types';
 import { ArrowLeft, Save, Loader2 } from 'lucide-react';
 import { ImageUpload } from '@/components/admin/ImageUpload';
-import { markdownToTipTap } from '@/lib/markdown-to-tiptap';
 
 export default function NewBlogPostPage() {
   const router = useRouter();
@@ -83,30 +82,34 @@ export default function NewBlogPostPage() {
     }
 
     try {
-      // Convert markdown to TipTap JSON format
-      const tipTapContent = markdownToTipTap(formData.content);
-
-      const { error } = await supabase.from('blog_posts').insert({
-        title: formData.title,
-        slug: formData.slug,
-        excerpt: formData.excerpt,
-        content: tipTapContent,
-        category_id: formData.category_id || null,
-        reading_time: formData.reading_time,
-        published: formData.published,
-        featured: formData.featured,
-        cover_image: formData.cover_image || null,
-        seo_title: formData.seo_title || formData.title,
-        seo_description: formData.seo_description || formData.excerpt,
-        author_id: user?.id,
-        published_at: formData.published ? new Date().toISOString() : null,
+      const response = await fetch('/api/blog', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: formData.title,
+          slug: formData.slug,
+          excerpt: formData.excerpt,
+          content: formData.content,
+          category_id: formData.category_id,
+          reading_time: formData.reading_time,
+          published: formData.published,
+          featured: formData.featured,
+          cover_image: formData.cover_image,
+          seo_title: formData.seo_title,
+          seo_description: formData.seo_description,
+        }),
       });
 
-      if (error) throw error;
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create post');
+      }
+
       router.push('/admin/blog');
     } catch (error) {
       console.error('Error creating post:', error);
-      alert('Failed to create post. Please try again.');
+      alert(error instanceof Error ? error.message : 'Failed to create post. Please try again.');
     } finally {
       setLoading(false);
     }
